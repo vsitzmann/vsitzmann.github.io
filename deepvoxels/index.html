@@ -1,12 +1,113 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>title</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Teaching 3D to 2D generative models.">
+    <meta name="author" content="Vincent Sitzmann,
+                                 Justus Thies,
+                                 Felix Heide,
+                                 Matthias Niessner,
+                                 Gordon Wetzstein,
+                                 Michael Zollhöfer">
+    <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.ico"> -->
+
+    <title>DeepVoxels: Learning Persistent 3D Feature Embeddings</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+
+    
   </head>
+
   <body>
-	Test Deepvoxels		
+    <div class="container">
+
+    <div class="jumbotron">
+      <h2>DeepVoxels: Learning Persistent 3D Feature Embeddings</h2>
+      <p class="abstract">Teaching 3D to 2D generative models.</p>
+      <p iclass="authors">
+          <a href="http://stanford.edu/~sitzmann/">Vincent Sitzmann</a>,
+          <a href="https://niessnerlab.org/members/justus_thies/profile.html">Justus Thies</a>,
+          <a href="https://scholar.google.com/citations?user=gRqzSHsAAAAJ&hl=en&oi=ao">Felix Heide</a>,
+          <a href="https://niessnerlab.org/members/matthias_niessner/profile.html">Matthias Niessner</a>,
+          <a href="https://stanford.edu/~gordonwz/">Gordon Wetzstein</a>,
+          <a href="http://zollhoefer.com/">Michael Zollhöfer</a>
+      </p>
+
+      <p>
+<!--          <a class="btn btn-primary" href="https://github.com/vsitzmann/deepvoxels">Code</a>-->
+<!--        <a class="btn btn-primary" href="">Dataset</a>-->
+        <a class="btn btn-primary" href="https://arxiv.org/abs/1812.01024">Paper</a>
+        <a class="btn btn-primary" href="https://drive.google.com/file/d/1BnZRyNcVUty6-LxAstN83H79ktUq8Cjp/view?usp=sharing">Supplemental Material</a> </p>
+    </div>    
+
+    <img src="img/teaser.gif" style="width:50%; display:block; margin-right:auto; margin-left:auto; margin-top:-10px;">
+
+    <hr>
+
+    <div>
+    <p>
+        In this work, we address the lack of 3D understanding of generative neural networks by introducing a persistent 3D feature embedding for view synthesis.
+        To this end, we propose DeepVoxels, a learned representation that encodes the view-dependent appearance of a 3D scene without having to explicitly model its geometry.
+        At its core, our approach is based on a Cartesian 3D grid of persistent embedded features that learn to make use of the underlying 3D scene structure.
+        Our approach thus combines insights from 3D geometric computer vision with recent advances in learning image-to-image mappings based on adversarial loss functions.
+        DeepVoxels is supervised, without requiring a 3D reconstruction of the scene, using a 2D re-rendering loss and enforces perspective and multi-view geometry in a principled manner.
+        We apply our persistent 3D scene representation to the problem of novel view synthesis demonstrating high-quality results for a variety of challenging scenes.
+    </p>
+    </div>
+
+    <div style="padding-top:30px">
+        <h3>Paper</h3>
+        <div class="list-group">
+            <a href="https://arxiv.org/abs/1812.01024" class="list-group-item">
+                <img src="img/paper_thumbnails.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                <h4 class="list-group-item-heading">DeepVoxels: Learning Persistent 3D Feature Embeddings</h4>
+                <p class="list-group-item-text">Vincent Sitzmann,
+                    Justus Thies,
+                    Felix Heide,
+                    Matthias Niessner,
+                    Gordon Wetzstein,
+                    Michael Zollhöfer</p>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="section">
+      <h3>Submission Video</h3>
+      <iframe width="884" height="497" src="https://www.youtube.com/embed/HM_WsZhoGXw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <h3>Bibtex</h3>
+    <hr>
+    <div class="bibtexsection">
+            @inproceedings{sitzmann2019deepvoxels,
+                author = {Sitzmann, Vincent
+                          and Thies, Justus
+                          and Heide, Felix
+                          and Nie{\ss}ner, Matthias
+                          and Wetzstein, Gordon
+                          and Zollh{\"o}fer, Michael},
+                title = {DeepVoxels: Learning Persistent 3D Feature Embeddings},
+                booktitle = {Proc. Computer Vision and Pattern Recognition (CVPR), IEEE},
+                year={2019}
+            }
+      }
+    </div>
+
+
+    
+    <hr>
+      <footer>
+          <p>Send feedback and questions to <a href="http://web.stanford.edu/~sitzmann/">Vincent Sitzmann</a></p>
+          <p>Thanks to Volodymyr Kuleshov for his website template. &copy; 2017</p>
+      </footer>
+
+    </div><!--/.container-->
   </body>
 </html>
