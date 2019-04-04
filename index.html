@@ -1,12 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+<head>
+    <title>Vincent Sitzmann</title>
+
+    <!-- Meta tags -->
     <meta charset="utf-8">
-    <title>title</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body>
-		
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+          body {
+            font-family: 'sans-serif';
+            font-size: 16px;
+            background-color: #FFFFFF;
+            color: #4F6071;
+          }
+          #header {
+            background-color: #FFFFFF;
+            display: flex;
+            align-items: flex-end;
+            padding-top:60px;
+            padding-bottom:60px;
+          }
+          #footer {
+            background-color: #FFFFFF;
+            padding:60px;
+          }
+          #portrait {
+            border: 3px solid white;
+          }
+          #header-text {
+            margin-top: 60px;
+            margin-left: 220px;
+          }
+          #header-text-name {
+            font-size: 40px;
+          }
+          #header-text-email {
+            font-size: 20px;
+            font-style: italic;
+          }
+          .header-text-desc {
+            font-size: 20px;
+          }
+          .vspace-top {
+            margin-top: 30px;
+          }
+          .paper-image {
+            width: 150px;
+          }
+          .paper-title {
+            font-weight: bold;
+          }
+          .paper-authors {
+            font-style: italic;
+          }
+    </style>
+</head>
+
+<body>
+    <div id='header'>
+        <div class='container'>
+            <div class='row'>
+                <div class="col-sm-3 offset-sm-1">
+                    <img src='imgs/portrait.jpeg' class='img-fluid' id='portrait'>
+                </div>
+
+                <div class="col">
+                  <div id='header-text-name'>
+                      Vincent Sitzmann
+                  </div>
+                  <div id='header-text-email'>
+                    sitzmann (at) cs (dot) stanford (dot) edu
+                  </div>
+                  <div>
+                    <a href="https://github.com/vsitzmann">[GitHub]</a>
+                    <a href="https://scholar.google.com/citations?user=X44QVV4AAAAJ&hl=en&oi=ao">[Google Scholar]</a>
+                    <!--- <a href="">[Download CV]</a> ---!>
+                  </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='container'>
+        <div class='row vspace-top'>
+            <div class='col offset-sm-1'>
+                <h1>Bio</h1>
+                <p>
+                I am a third year Ph.D. student in the <a href="http://computationalimaging.org">Stanford Computational Imaging Laboratory</a>, advised by Prof. Gordon Wetzstein. My research interest is at the intersection of Computer Vision and Computational Imaging, with brief stints in VR and Human Perception.
+                </p>
+            
+                <div class='vspace-top'>
+                    <h1>Publications</h1>
+                </div>
+
+                <!--- List of publications ---!>
+                <div class='row vspace-top'>
+                    <div class="col-sm-3">
+                        <img src='imgs/deepvoxels.png' class='img-fluid'>
+                    </div>
+
+                    <div class="col">
+                      <div class='paper-title'>
+                          DeepVoxels: Learning Persistent 3D Feature Embeddings
+                      </div>
+                      <div class='paper-desc'>
+                          arXiv 2018
+                      </div>
+                      <div class='paper-authors'>
+                      <u>Vincent Sitzmann</u>, Justus Thies, Felix Heide, Matthias Nießner, Gordon Wetzstein, Michael Zollhöfer
+                      </div>
+                      <div>
+                         <a href="http://vsitzmann.github.io/deepvoxels/">[Project page]</a>
+                         <a href="https://arxiv.org/abs/1812.01024">[Preprint]</a>
+                      </div>
+                    </div>
+                </div>
+
+
+                <div class='row vspace-top'>
+                    <div class="col-sm-3">
+                        <img src='imgs/onn_thumbnail.jpg' class='img-fluid'>
+                    </div>
+
+                    <div class="col">
+                      <div class='paper-title'>
+                          Hybrid optical-electronic convolutional neural networks with optimized diffractive optics for image classification
+                      </div>
+                      <div class='paper-desc'>
+                        Scientific Reports
+                      </div>
+                      <div class='paper-authors'>
+                      Julie Chang, <u>Vincent Sitzmann</u>, Xiong Dun, Wolfgang Heidrich, Gordon Wetzstein
+                      </div>
+                      <div>
+                        <a href="https://www.nature.com/articles/s41598-018-30619-y">[Paper]</a>
+                      </div>
+                    </div>
+                </div>
+
+                <div class='row vspace-top'>
+                    <div class="col-sm-3">
+                        <img src='imgs/end-to-end-cam.jpg' class='img-fluid'>
+                    </div>
+
+                    <div class="col">
+                      <div class='paper-title'>
+                          End-to-end Optimization of Optics and Image Processing for Achromatic Extended Depth of Field and Super-resolution Imaging
+                      </div>
+                      <div class='paper-desc'>
+                          SIGGRAPH 2018
+                      </div>
+                      <div class='paper-authors'>
+                          <u>Vincent Sitzmann*</u>, Steven Diamond*, Yifan Peng*, Xiong Dun, Stephen Boyd, Wolfgang Heidrich, Felix Heide, Gordon Wetzstein
+                      </div>
+                      <div>
+                         <a href="https://vsitzmann.github.io/deepoptics/">[Project page]</a>
+                        <a href="https://drive.google.com/file/d/1Xums2qyqSGP_z_24HnYpM9gbRm1_uAzY/view?usp=sharing">[Paper]</a>
+                      </div>
+                    </div>
+                </div>
+
+                <div class='row vspace-top'>
+                    <div class="col-sm-3">
+                        <img src='imgs/saliency.jpg' class='img-fluid'>
+                    </div>
+
+                    <div class="col">
+                      <div class='paper-title'>
+                        Saliency in VR: How do people explore virtual environments?
+                      </div>
+                      <div class='paper-desc'>
+                        IEEE VR 2018
+                      </div>
+                      <div class='paper-authors'>
+                          <u>Vincent Sitzmann*</u>, Ana Serrano*, Amy Pavel, Maneesh Agrawala, Belen Masia, Diego Gutierrez, Gordon Wetzstein
+                      </div>
+                      <div>
+                        <a href="https://vsitzmann.github.io/vr-saliency">[Project page]</a>
+                        <a href="http://ieeexplore.ieee.org/document/8269807/">[Paper]</a>
+                        <a href="https://www.github.com/vsitzmann/vr-saliency">[Code]</a>
+                      </div>
+                    </div>
+                </div>
+
+                <div class='row vspace-top'>
+                    <div class="col-sm-3">
+                        <img src='imgs/cognitive_events.jpg' class='img-fluid'>
+                    </div>
+
+                    <div class="col">
+                      <div class='paper-title'>
+                          Movie Editing and Cognitive Event Segmentation in Virtual Reality Video
+                      </div>
+                      <div class='paper-desc'>
+                          SIGGRAPH 2017
+                      </div>
+                      <div class='paper-authors'>
+                          Ana Serrano, <u>Vincent Sitzmann</u>, Jaime Ruiz-Borau, Gordon Wetzstein, Diego Gutierrez, Belen Masia
+                      </div>
+                      <div>
+                        <a href="http://webdiis.unizar.es/~aserrano/docs/Serrano_SIGG2017_VR-cine.pdf">[Paper]</a>
+                      </div>
+                    </div>
+                </div>
+
+                <div class='row vspace-top'>
+                    <div class="col-sm-3">
+                        <img src='imgs/sickness_prediction.jpg' class='img-fluid'>
+                    </div>
+
+                    <div class="col">
+                      <div class='paper-title'>
+                          Towards a Machine-learning Approach for Sickness Prediction in 360° Stereoscopic Videos
+                      </div>
+                      <div class='paper-desc'>
+                          IEEE VR 2018
+                      </div>
+                      <div class='paper-authors'>
+                          Nitish Padmanaban*, Timon Ruban*, <u>Vincent Sitzmann</u>, Anthony M. Norcia, Gordon Wetzstein
+                      </div>
+                      <div>
+                        <a href="http://ieeexplore.ieee.org/document/8267239/">[Paper]</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id='footer' class='vspace-top'>
+    <div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
 </html>
