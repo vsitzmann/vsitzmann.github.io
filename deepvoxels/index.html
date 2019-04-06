@@ -12,7 +12,6 @@
                                  Matthias Niessner,
                                  Gordon Wetzstein,
                                  Michael Zollhöfer">
-    <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.ico"> -->
 
     <title>DeepVoxels: Learning Persistent 3D Feature Embeddings</title>
     <!-- Bootstrap core CSS -->
@@ -21,7 +20,7 @@
     <!-- Custom styles for this template -->
     <link href="offcanvas.css" rel="stylesheet">
 
-      <link rel="icon" href="img/favicon.gif" type="image/gif" >
+    <link rel="icon" href="img/favicon.gif" type="image/gif" >
   </head>
 
   <body>
@@ -40,8 +39,8 @@
       </p>
 
       <p>
-<!--          <a class="btn btn-primary" href="https://github.com/vsitzmann/deepvoxels">Code</a>-->
-<!--        <a class="btn btn-primary" href="">Dataset</a>-->
+<!--    <a class="btn btn-primary" href="https://github.com/vsitzmann/deepvoxels">Code</a>-->
+<!--    <a class="btn btn-primary" href="">Dataset</a>-->
         <a class="btn btn-primary" href="https://arxiv.org/abs/1812.01024">Paper</a>
         <a class="btn btn-primary" href="https://drive.google.com/file/d/1BnZRyNcVUty6-LxAstN83H79ktUq8Cjp/view?usp=sharing">Supplemental Material</a> </p>
     </div>
@@ -62,8 +61,13 @@
             a higher-dimensional feature space, leading to poor generalization to novel views at test time - such as the output of
             Pix2Pix trained on images of the cube above.
         </p>
+    </div>
+
+    <div class="section">
+        <h3>DeepVoxels: A 3D-structured Neural Scene Representation</h3>
+        <hr>
         <p>
-            <b>With DeepVoxels, we introduce a 3D-structured neural scene representation.</b>
+            With DeepVoxels, we introduce a 3D-structured neural scene representation.
             DeepVoxels encodes the view-dependent appearance of a 3D scene without having to explicitly model its geometry.
             DeepVoxels is based on a Cartesian 3D grid of persistent features that learn to make use of the underlying 3D
             scene structure. It combines insights from 3D computer vision with recent advances in learning
@@ -102,17 +106,17 @@
     <h3>Bibtex</h3>
     <hr>
     <div class="bibtexsection">
-            @inproceedings{sitzmann2019deepvoxels,
-                author = {Sitzmann, Vincent
-                          and Thies, Justus
-                          and Heide, Felix
-                          and Nie{\ss}ner, Matthias
-                          and Wetzstein, Gordon
-                          and Zollh{\"o}fer, Michael},
-                title = {DeepVoxels: Learning Persistent 3D Feature Embeddings},
-                booktitle = {Proc. Computer Vision and Pattern Recognition (CVPR), IEEE},
-                year={2019}
-            }
+    @inproceedings{sitzmann2019deepvoxels,
+        author = {Sitzmann, Vincent
+                  and Thies, Justus
+                  and Heide, Felix
+                  and Nie{\ss}ner, Matthias
+                  and Wetzstein, Gordon
+                  and Zollh{\"o}fer, Michael},
+        title = {DeepVoxels: Learning Persistent 3D Feature Embeddings},
+        booktitle = {Proc. Computer Vision and Pattern Recognition (CVPR), IEEE},
+        year={2019}
+        }
       }
     </div>
 
