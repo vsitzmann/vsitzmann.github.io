@@ -51,23 +51,23 @@
         <hr>
         <img src="img/teaser.gif" style="width:50%; display:block; margin-right:auto; margin-left:auto; margin-top:-10px;">
         <p>
-            Deep Generative Models today allow us to perform highly-realistic image synthesis in a variety of settings.
+            Deep Generative Models today allow us to perform highly-realistic image synthesis.
             While each generated image is of high quality, a major challenge is to generate a series of coherent views of
-            the same scene. This would require the network to have a latent space representation that fundamentally understands the 3D layout
+            the same scene. This requires the network to have a latent space representation that fundamentally understands the 3D layout
             of the scene; e.g., how would the same chair look from a different viewpoint?
         </p>
         <p>
-            Unfortunately, this proves challenging for existing generative neural network architectures that are based
-            on a series of 2D convolution kernels. Instead of actually parameterizing 3D transformations, they will instead explain training data in
+            Unfortunately, this is challenging for existing models that are based on a series of 2D convolution kernels.
+            Instead of parameterizing 3D transformations, they will instead explain training data in
             a higher-dimensional feature space, leading to poor generalization to novel views at test time - such as the output of
             Pix2Pix trained on images of the cube above.
         </p>
         <p>
             With DeepVoxels, we introduce a 3D-structured neural scene representation for view synthesis.
             DeepVoxels encodes the view-dependent appearance of a 3D scene without having to explicitly model its geometry.
-            At its core, DeepVoxels is based on a Cartesian 3D grid of persistent embedded features that learn to make use of the underlying 3D
-            scene structure. Our approach combines insights from 3D geometric computer vision with recent advances in learning
-            image-to-image mappings based on adversarial loss functions. DeepVoxels is supervised, without requiring a 3D reconstruction of the scene,
+            DeepVoxels is based on a Cartesian 3D grid of persistent features that learn to make use of the underlying 3D
+            scene structure. It combines insights from 3D computer vision with recent advances in learning
+            image-to-image mappings. DeepVoxels is supervised, without requiring a 3D reconstruction of the scene,
             using a 2D re-rendering loss and enforces perspective and multi-view geometry in a principled manner.
         </p>
     </div>
