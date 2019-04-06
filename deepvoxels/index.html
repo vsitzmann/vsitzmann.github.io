@@ -44,37 +44,60 @@
 <!--        <a class="btn btn-primary" href="">Dataset</a>-->
         <a class="btn btn-primary" href="https://arxiv.org/abs/1812.01024">Paper</a>
         <a class="btn btn-primary" href="https://drive.google.com/file/d/1BnZRyNcVUty6-LxAstN83H79ktUq8Cjp/view?usp=sharing">Supplemental Material</a> </p>
-    </div>    
+    </div>
 
-    <img src="img/teaser.gif" style="width:50%; display:block; margin-right:auto; margin-left:auto; margin-top:-10px;">
+    <div class="section">
+        <h3>2D Generative Models can't do 2D</h3>
+        <hr>
+        <img src="img/teaser.gif" style="width:50%; display:block; margin-right:auto; margin-left:auto; margin-top:-10px;">
+        <p>
+            Deep Generative Models today allow us to perform highly-realistic image synthesis in a variety of settings.
+            While each generated image is of high quality, a major challenge is to generate a series of coherent views of
+            the same scene. This would require the network to have a latent space representation that fundamentally understands the 3D layout
+            of the scene; e.g., how would the same chair look from a different viewpoint?
+        </p>
+        <p>
+            Unfortunately, this proves challenging for existing generative neural network architectures that are based
+            on a series of 2D convolution kernels. Instead of actually parameterizing 3D transformations, they will instead explain training data in
+            a higher-dimensional feature space, leading to poor generalization to novel views at test time - such as the output of
+            Pix2Pix trained on images of the cube above.
+        </p>
+        <p>
+            With DeepVoxels, we introduce a 3D-structured neural scene representation for view synthesis.
+            DeepVoxels encodes the view-dependent appearance of a 3D scene without having to explicitly model its geometry.
+            At its core, DeepVoxels is based on a Cartesian 3D grid of persistent embedded features that learn to make use of the underlying 3D
+            scene structure. Our approach combines insights from 3D geometric computer vision with recent advances in learning
+            image-to-image mappings based on adversarial loss functions. DeepVoxels is supervised, without requiring a 3D reconstruction of the scene,
+            using a 2D re-rendering loss and enforces perspective and multi-view geometry in a principled manner.
+        </p>
+    </div>
 
-    <hr>
+    <div class="section">
+        <h3>Results on Real Captures with Nearest Neighbor Comparison</h3>
+        <hr>
+        <img src="img/dyck_stacked.mp4.gif" style="width:30%; margin-right:auto; margin-left:auto; margin-top:-10px;">
+        <img src="img/fountain_stacked.mp4.gif" style="width:30%; margin-right:auto; margin-left:auto; margin-top:-10px;">
+        <img src="img/globe_stacked.mp4.gif" style="width:30%; margin-right:auto; margin-left:auto; margin-top:-10px;">
+    </div>
 
-    <div style="padding-top:30px">
-        <div class="list-group">
-            <a href="https://arxiv.org/abs/1812.01024" class="list-group-item">
-                <img src="img/paper_thumbnails.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
-            </a>
+    <div class="section">
+        <h3>Submission Video</h3>
+        <hr>
+        <iframe width="884" height="497" src="https://www.youtube.com/embed/HM_WsZhoGXw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="section">
+        <h3>CVPR 2019 Paper</h3>
+        <hr>
+        <div>
+            <div class="list-group">
+                <a href="https://arxiv.org/abs/1812.01024" class="list-group-item">
+                    <img src="img/paper_thumbnails.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                </a>
+            </div>
         </div>
     </div>
 
-    <div>
-    <p>
-        In this work, we address the lack of 3D understanding of generative neural networks by introducing a persistent 3D feature embedding for view synthesis.
-        To this end, we propose DeepVoxels, a learned representation that encodes the view-dependent appearance of a 3D scene without having to explicitly model its geometry.
-        At its core, our approach is based on a Cartesian 3D grid of persistent embedded features that learn to make use of the underlying 3D scene structure.
-        Our approach thus combines insights from 3D geometric computer vision with recent advances in learning image-to-image mappings based on adversarial loss functions.
-        DeepVoxels is supervised, without requiring a 3D reconstruction of the scene, using a 2D re-rendering loss and enforces perspective and multi-view geometry in a principled manner.
-        We apply our persistent 3D scene representation to the problem of novel view synthesis demonstrating high-quality results for a variety of challenging scenes.
-    </p>
-    </div>
-
-
-
-    <div class="section">
-      <h3>Submission Video</h3>
-      <iframe width="884" height="497" src="https://www.youtube.com/embed/HM_WsZhoGXw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
 
     <h3>Bibtex</h3>
     <hr>
