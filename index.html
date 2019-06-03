@@ -19,7 +19,8 @@
             color: #4F6071;
           }
           #header {
-            background-color: #FFFFFF;
+            background-color: #f4f4f4;
+            /*background-color: #FFFFFF;*/
             display: flex;
             align-items: flex-end;
             padding-top:60px;
@@ -49,8 +50,14 @@
           .vspace-top {
             margin-top: 30px;
           }
+          .vspace-top-news {
+              margin-top: 15px;
+          }
           .paper-image {
             width: 150px;
+          }
+          .news-date {
+              font-weight: bold;
           }
           .paper-title {
             font-weight: bold;
@@ -79,6 +86,7 @@
                   <div>
                     <a href="https://github.com/vsitzmann">[GitHub]</a>
                     <a href="https://scholar.google.com/citations?user=X44QVV4AAAAJ&hl=en&oi=ao">[Google Scholar]</a>
+                    <a href="https://linkedin.com/in/vincentsitzmann">[LinkedIn]</a>
                     <!--- <a href="">[Download CV]</a> ---!>
                   </div>
 
@@ -87,6 +95,7 @@
         </div>
     </div>
 
+
     <div class='container'>
         <div class='row vspace-top'>
             <div class='col offset-sm-1'>
@@ -94,7 +103,35 @@
                 <p>
                 I am a fourth year Ph.D. student in the <a href="http://computationalimaging.org">Stanford Computational Imaging Laboratory</a>, advised by Prof. Gordon Wetzstein. My research interest is in 3D computer vision - specifically, I am interested in 3D-structured neural scene representations that allow machines to reason about our 3D world. I have previously worked on differentiable camera pipelines as well as VR and Human Perception.
                 </p>
-            
+
+                <div class='vspace-top'>
+                    <h1>News</h1>
+                </div>
+
+                <!--- List of news ---!>
+                <div class='row vspace-top-news'>
+                    <div class="col-sm-2 news-date">
+                        May 2019
+                    </div>
+
+                    <div class="col">
+                        I will join Prof. Noah Snavely's group at the Google NYC office over the summer and continue working
+                        on Deep Learning for scene understanding and novel view synthesis.
+                    </div>
+                </div>
+
+                <div class='row vspace-top-news'>
+                    <div class="col-sm-2 news-date">
+                        March 2019
+                    </div>
+
+                    <div class="col">
+                        Our paper "DeepVoxels: Learning Persistent 3D Feature Embeddings" was accepted to CVPR as an oral!
+                        I will be in Los Angeles from June 16 to June 21 to present the paper.
+                    </div>
+                </div>
+
+
                 <div class='vspace-top'>
                     <h1>Publications</h1>
                 </div>
