@@ -1,1 +1,164 @@
-Hello world!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations">
+    <meta name="author" content="Vincent Sitzmann,
+                                 Michael Zollhöfer,
+				 Gordon Wetzstein">
+
+    <title>Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+
+<!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+</head>
+
+<body>
+<div class="container">
+
+    <div class="jumbotron">
+        <h2>Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations</h2>
+        <p class="abstract">An interpretable, data-efficient, and scalable neural scene representation.</p>
+        <p iclass="authors">
+            <a href="http://stanford.edu/~sitzmann/">Vincent Sitzmann</a>,
+            <a href="http://zollhoefer.com/">Michael Zollhöfer</a>,
+            <a href="https://stanford.edu/~gordonwz/">Gordon Wetzstein</a>
+        </p>
+
+        <p>
+            <!--        <a class="btn btn-primary" href="">Code</a>
+            <a class="btn btn-primary" href="https://drive.google.com/open?id=1ScsRlnzy9Bd_n-xw83SP-0t548v63mPH">Dataset</a> !-->
+<!--            <a class="btn btn-primary" href="https://arxiv.org/abs/1812.01024">Paper</a>-->
+    </div>
+
+    <div class="section">
+        <h3>Neural Scene Representations</h3>
+        <hr>
+        <!--<img src="img/teaser.gif" style="width:50%; display:block; margin-right:auto; margin-left:auto; margin-top:-10px;">--!>
+        <p>
+            In the past decades of research, computer vision has developed different mathematical model of our 3D world,
+            such as voxel grids, point clouds, and meshes. Yet, feats that are easy for a human - such
+            as inferring the shape, material, or appearance of a scene from only a single picture - have eluded algorithms
+            so far.
+        </p>
+        <p>
+            The advent of deep learning has given rise to <b>neural scene representations</b>.
+            Instead of hand-crafting the representation, they learn a feature representation from data. However, many of these representations do not explicitly reason about
+            geometry and thus do not account for the underlying 3D structure of our world, making them data-inefficient
+            and opaque.
+        </p>
+
+        <h3>The Trouble with Voxel Grids</h3>
+        <hr>
+        <p>
+            Recent work (<a href="https://vsitzmann.github.io/deepvoxels">including our own</a>) explores voxel grids as a middle ground, where
+            features are stored in a 3D grid, and view transformations are hard-coded to enforce 3D structure.
+            This has yielded photo-realistic results. Voxel grids, however, are an unlikely candidate for the "correct"
+            representation: As a dense grid, they require memory that scales cubically with spatial resolution.
+            This is acceptable for small objects, but doesn't scale to larger scenes. Lastly, voxel grids do not parameterize
+            scene surfaces smoothly, and priors on shape have to be parameterized as joint probabilities
+            over neighborhoods of voxels.
+        </p>
+
+
+        <h3>Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations</h3>
+        <hr>
+        <iframe width="884" height="497" src="https://www.youtube.com/embed/6vMEBWD8O20" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>
+            We propose Scene Representation Networks (SRNs), a continuous, 3D-structure-aware scene representation that
+            encodes both geometry and appearance. SRNs represent scenes as continuous functions that map world
+            coordinates to a feature representation of local scene properties. By formulating the image formation as a
+            neural, 3D-aware rendering algorithm, SRNs can be trained end-to-end from only 2D observations, without
+            access to depth or geometry. SRNs do not discretize space, smoothly parameterizing scene surfaces, and their
+            memory complexity does not scale directly with scene resolution. This formulation naturally generalizes
+            across scenes, learning powerful geometry and appearance priors in the process.
+        </p>
+        <h3>Reconstructing Geometry and Appearance only from images</h3>
+        <hr>
+<!--        <img src="img/.gif" style="width:32%; margin-right:auto; margin-left:auto; margin-top:-10px;">-->
+        <p>
+            Due to the explicit 3D constraints enforced by the neural ray marcher, SRNs are forced to explain all
+            observations in 3D, leading to unsupervised, yet explicit, reconstruction of geometry jointly with
+            appearance. Normal maps may visualize the reconstructed geometry and make SRNs fully interpretable.
+        </p>
+        <h3>Per-pixel formulation</h3>
+        <hr>
+        <div class="gif">
+            <img src="img/zoom.gif" style="width:32%; margin-right:auto; margin-left:auto; margin-top:-10px;" >
+            <img src="img/camera_rotation.gif" style="width:32%; margin-right:auto; margin-left:auto; margin-top:-10px;">
+        </div>
+        <p>
+            SRNs generate images without using convolutional neural networks (CNNs) - pixels of a rendered image
+            are only connected via the 3D scene representation. SRNs can thus be sampled at arbitrary image
+            resolutions without retraining, and naturally generalize to completely unseen camera transformations. The model
+            that generated the images above was trained on cars, but only on views with a constant distance to
+            each car - yet, it flawlessly enables zooom and camera roll, though these transformations were entirely
+            unobserved at training time. In contrast, models with black-box neural renderers will fail entirely to
+            generate these novel views.
+        </p>
+        <h3>Few-shot reconstruction</h3>
+        <hr>
+        <p>
+            By generalizing SRNs over a class of scenes, they enable few-shot reconstruction of both shape and geometry
+            - a car, for instance, may be reconstructed from only a single observation, enabling almost perfectly
+            multi-view consistent novel view generation.
+        </p>
+        <h3>Non-rigid deformation</h3>
+        <hr>
+        <div class="gif">
+            <img src="img/identity_interpolation.gif" style="width:32%; margin-right:auto; margin-left:auto; margin-top:-10px;">
+            <img src="img/face_expressions.gif" style="width:32%; margin-right:auto; margin-left:auto; margin-top:-10px;">
+        </div>
+        <p>
+            Because surfaces are parameterized smoothly, SRNs naturally allow for non-rigid deformation. The model above
+            was trained on 50 images each of 1000 faces, where each of the 50 images shows the same face (identity and
+            expression) from a unique view. In other words, a single identity has only been seen with a single facial
+            expression. Subsequently, SRNs allow to fix the identity of the face while varying the facial expression,
+            effortlessly generalizing facial expressions across identities.
+        </p>
+    </div>
+
+
+    <div class="section">
+        <h3>arXiv preprint</h3>
+        <hr>
+        <div>
+            <div class="list-group">
+                <a href="" class="list-group-item">
+                    <img src="img/paper_thumbnail.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <h3>Bibtex</h3>
+    <hr>
+    <div class="bibtexsection">
+        @inproceedings{sitzmann2019srns,
+            author = {Sitzmann, Vincent
+                      and Zollh{\"o}fer, Michael,
+                      and Wetzstein, Gordon},
+            title = {Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations},
+            booktitle = {arXiv},
+            year={2019}
+        }
+    </div>
+
+
+    <hr>
+    <footer>
+        <p>Send feedback and questions to <a href="http://web.stanford.edu/~sitzmann/">Vincent Sitzmann</a></p>
+        <p>Thanks to Volodymyr Kuleshov for his website template. &copy; 2017</p>
+    </footer>
+
+</div><!--/.container-->
+</body>
+</html>
