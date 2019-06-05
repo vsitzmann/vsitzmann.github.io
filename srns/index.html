@@ -52,13 +52,23 @@
         memory complexity does not scale directly with scene resolution. This formulation naturally generalizes
         across scenes, learning powerful geometry and appearance priors in the process.
     </p>
-    <p>
-        SRNs explain all 2D observations in 3D, leading to unsupervised, yet explicit, reconstruction of geometry jointly with
-        appearance. Normal maps may visualize the reconstructed geometry and make SRNs fully interpretable.
-    </p>
-
 
     <div class="section">
+        <h3>Generalizing Shape & Appearance Priors Across Scenes</h3>
+        <hr>
+        <div class="gif">
+            <video width="100%" playsinline="" controls="" autoplay="" loop="" preload="" muted="">
+                <source src="img/many_training_cars.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p>
+            SRNs explain all 2D observations in 3D, leading to unsupervised, yet explicit, reconstruction of geometry jointly with
+            appearance. Normal maps may visualize the reconstructed geometry and make SRNs fully interpretable.
+            On the left, you can see the normal maps of the reconstructed
+            geometry - note that these are learned fully unsupervised! In the center, you can see novel views generated
+            by SRNs, and to the right, the ground-truth views. This model was trained on 50 2D observations each of ~2.5k cars in the Shapenet v2 dataset.
+        </p>
+
         <h3>Camera Pose Extrapolation</h3>
         <hr>
         <div class="gif">
@@ -92,7 +102,7 @@
 
         <h3>Single-image reconstruction</h3>
         <hr>
-        <video width="100%" playsinline="" controls="" autoplay="" loop="" preload="" muted="" class="gif">
+        <video width="80%" playsinline="" controls="" autoplay="" loop="" preload="" muted="" class="gif">
             <source src="img/Single_shot_gif.mp4" type="video/mp4">
         </video>
         <p>
