@@ -28,6 +28,18 @@ li {
   font-size: 16px;
 }
 
+.jumbotron{
+    text-align: center;
+}
+
+.btn {
+    font-size: 18px;
+}
+
+.btn-disabled {
+    /*background-color: #f4f4f4;*/
+}
+
 .jumbotron h2 {
   font-size: 36px;
 }
