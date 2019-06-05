@@ -116,17 +116,20 @@
         <hr>
         <div class="gif">
             <video width="40%" playsinline="" autoplay="" loop="" preload="" muted="">
-                <source src="img/identity_interpolation.mp4" type="video/mp4">
+                <source src="img/face_expressions.mp4" type="video/mp4">
             </video>
             <video width="40%" playsinline="" autoplay="" loop="" preload="" muted="">
-                <source src="img/face_expressions.mp4" type="video/mp4">
+                <source src="img/identity_interpolation.mp4" type="video/mp4">
             </video>
         </div>
         <p>
             Because surfaces are parameterized smoothly, SRNs naturally allow for non-rigid deformation. The model above
-            was trained on 50 images each of 1000 faces. A single identity has only been observed with a single facial
-            expression. Subsequently, SRNs allow to fix the identity of the face while varying the facial expression,
-            effortlessly generalizing facial expressions across identities.
+            was trained on 50 images each of 1000 faces, where we used the ground-truth identity and expression parameters
+            as latent codes. A single identity has only been observed with a single facial
+            expression. By fixing identity parameters and varying expression parameters,
+            SRNs allow for non-rigid deformation of the learned face model, effortlessly generalizing facial expressions across identities (right).
+            Similar to the cars and chairs above, interpolation latent vectors yields smooth interpolation of the respective
+            identities and expressions (left). Note that all movements are reflected in the normal map as well as the appearance.
         </p>
 
         <h2>Proof-of-concept: Inside-out Novel View Synthesis</h2>
