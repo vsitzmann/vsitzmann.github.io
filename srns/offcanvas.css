@@ -6,6 +6,7 @@ html,
 body {
   overflow-x: hidden;  /*Prevent scroll on narrow devices */
   padding-top: 30px;
+    text-align: justify;
 }
 footer {
   padding: 10px 0;
@@ -26,6 +27,11 @@ p {
 
 li {
   font-size: 16px;
+}
+
+h2 {
+    text-align: center;
+    align: center;
 }
 
 .jumbotron{

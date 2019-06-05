@@ -40,7 +40,7 @@
             <a class="btn btn-primary" disabled="">Dataset (tba)</a>
     </div>
 
-    <h3>Paper Video</h3>
+    <h2>Paper Video</h2>
     <hr>
     <iframe width="884" height="497" class='center' src="https://www.youtube.com/embed/6vMEBWD8O20" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -56,7 +56,7 @@
     </p>
 
     <div class="section">
-        <h3>Generalizing Shape & Appearance Priors Across Scenes</h3>
+        <h2>Generalizing Shape & Appearance Priors Across Scenes</h2>
         <hr>
         <div class="gif">
             <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
@@ -71,7 +71,7 @@
             by SRNs, and to the right, the ground-truth views. This model was trained on 50 2D observations each of ~2.5k cars in the Shapenet v2 dataset.
         </p>
 
-        <h3>Camera Pose Extrapolation</h3>
+        <h2>Camera Pose Extrapolation</h2>
         <hr>
         <div class="gif">
             <video width="40%" playsinline="" autoplay="" loop="" preload="" muted="">
@@ -91,7 +91,7 @@
             unobserved at training time. In contrast, models with black-box neural renderers will fail entirely to
             generate these novel views.
         </p>
-        <h3>Instance Interpolation</h3>
+        <h2>Instance Interpolation</h2>
         <hr>
         <div class="gif">
             <video width="40%" playsinline=""  autoplay="" loop="" preload="" muted="">
@@ -102,7 +102,7 @@
             </video>
         </div>
 
-        <h3>Single-image reconstruction</h3>
+        <h2>Single-image reconstruction</h2>
         <hr>
         <video width="80%" playsinline="" autoplay="" loop="" preload="" muted="" class="gif">
             <source src="img/Single_shot_gif.mp4" type="video/mp4">
@@ -112,7 +112,7 @@
             - a car, for instance, may be reconstructed from only a single observation, enabling almost perfectly
             multi-view consistent novel view generation.
         </p>
-        <h3>Non-rigid deformation</h3>
+        <h2>Non-rigid deformation</h2>
         <hr>
         <div class="gif">
             <video width="40%" playsinline="" autoplay="" loop="" preload="" muted="">
@@ -129,7 +129,7 @@
             effortlessly generalizing facial expressions across identities.
         </p>
 
-        <h3>Proof-of-concept: Inside-out Novel View Synthesis</h3>
+        <h2>Proof-of-concept: Inside-out Novel View Synthesis</h2>
         <hr>
         <div class="gif">
             <video width="40%" playsinline="" autoplay="" loop="" preload="" muted="">
@@ -141,11 +141,11 @@
             and trained a single SRN with 500k parameters on this dataset.
         </p>
 
-        <h3>Neural Scene Representations</h3>
+        <h2>Motivation</h2>
         <hr>
         <!--<img src="img/teaser.gif" style="width:50%; display:block; margin-right:auto; margin-left:auto; margin-top:-10px;">--!>
         <p>
-            In the past decades of research, computer vision has developed different mathematical model of our 3D world,
+            <b>Neural Scene Representations.</b> Computer vision has developed many different mathematical models of our 3D world,
             such as voxel grids, point clouds, and meshes. Yet, feats that are easy for a human - such
             as inferring the shape, material, or appearance of a scene from only a single picture - have eluded algorithms
             so far.
@@ -158,10 +158,8 @@
             and opaque.
         </p>
 
-        <h3>The Trouble with Voxel Grids</h3>
-        <hr>
         <p>
-            Recent work (<a href="https://vsitzmann.github.io/deepvoxels">including our own</a>) explores voxel grids as a middle ground.
+            <b>The trouble with voxel grids.</b> Recent work (<a href="https://vsitzmann.github.io/deepvoxels">including our own</a>) explores voxel grids as a middle ground.
             Features are stored in a 3D grid, and view transformations are hard-coded to enforce 3D structure.
             Voxel grids, however, are an unlikely candidate for the "correct"
             representation, as they require memory that scales cubically with spatial resolution.
@@ -175,7 +173,7 @@
 
 
     <div class="section">
-        <h3>arXiv preprint</h3>
+        <h2>arXiv preprint</h2>
         <hr>
         <div>
             <div class="list-group">
@@ -187,7 +185,7 @@
     </div>
 
 
-    <h3>Bibtex</h3>
+    <h2>Bibtex</h2>
     <hr>
     <div class="bibtexsection">
         @inproceedings{sitzmann2019srns,
