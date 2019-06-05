@@ -38,9 +38,85 @@
             <a class="btn btn-primary" href="http://arxiv.org/abs/1906.01618">Paper</a>
     </div>
 
+    <h3>Paper Video</h3>
+    <hr>
     <iframe width="884" height="497" class='center' src="https://www.youtube.com/embed/6vMEBWD8O20" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+    <hr>
+    <p>
+        We propose Scene Representation Networks (SRNs), a continuous, 3D-structure-aware scene representation that
+        encodes both geometry and appearance. SRNs represent scenes as continuous functions that map world
+        coordinates to a feature representation of local scene properties. By formulating the image formation as a
+        neural, 3D-aware rendering algorithm, SRNs can be trained end-to-end from only 2D observations, without
+        access to depth or geometry. SRNs do not discretize space, smoothly parameterizing scene surfaces, and their
+        memory complexity does not scale directly with scene resolution. This formulation naturally generalizes
+        across scenes, learning powerful geometry and appearance priors in the process.
+    </p>
+    <p>
+        SRNs explain all 2D observations in 3D, leading to unsupervised, yet explicit, reconstruction of geometry jointly with
+        appearance. Normal maps may visualize the reconstructed geometry and make SRNs fully interpretable.
+    </p>
+
+
     <div class="section">
+        <h3>Camera Pose Extrapolation</h3>
+        <hr>
+        <div class="gif">
+            <video width="40%" playsinline="" controls="" autoplay="" loop="" preload="" muted="">
+                <source src="img/zoom.mp4" type="video/mp4">
+            </video>
+            <video width="40%" playsinline="" controls="" autoplay="" loop="" preload="" muted="">
+                <source src="img/camera_rotation.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p>
+            SRNs generate images without using convolutional neural networks (CNNs) - pixels of a rendered image
+            are only connected via the 3D scene representation and can be generated completely independently.
+            SRNs can thus be sampled at arbitrary image
+            resolutions without retraining, and naturally generalize to completely unseen camera transformations. The model
+            that generated the images above was trained on cars, but only on views with a constant distance to
+            each car - yet, it flawlessly enables zooom and camera roll, though these transformations were entirely
+            unobserved at training time. In contrast, models with black-box neural renderers will fail entirely to
+            generate these novel views.
+        </p>
+        <h3>Instance Interpolation</h3>
+        <hr>
+        <div class="gif">
+            <video width="40%" playsinline="" controls="" autoplay="" loop="" preload="" muted="">
+                <source src="img/car_interpolation.mp4" type="video/mp4">
+            </video>
+            <video width="40%" playsinline="" controls="" autoplay="" loop="" preload="" muted="">
+                <source src="img/chair_interpolation.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <h3>Single-image reconstruction</h3>
+        <hr>
+        <video width="100%" playsinline="" controls="" autoplay="" loop="" preload="" muted="" class="gif">
+            <source src="img/Single_shot_gif.mp4" type="video/mp4">
+        </video>
+        <p>
+            By generalizing SRNs over a class of scenes, they enable few-shot reconstruction of both shape and geometry
+            - a car, for instance, may be reconstructed from only a single observation, enabling almost perfectly
+            multi-view consistent novel view generation.
+        </p>
+        <h3>Non-rigid deformation</h3>
+        <hr>
+        <div class="gif">
+            <video width="40%" playsinline="" controls="" autoplay="" loop="" preload="" muted="">
+                <source src="img/identity_interpolation.mp4" type="video/mp4">
+            </video>
+            <video width="40%" playsinline="" controls="" autoplay="" loop="" preload="" muted="">
+                <source src="img/face_expressions.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p>
+            Because surfaces are parameterized smoothly, SRNs naturally allow for non-rigid deformation. The model above
+            was trained on 50 images each of 1000 faces. A single identity has only been observed with a single facial
+            expression. Subsequently, SRNs allow to fix the identity of the face while varying the facial expression,
+            effortlessly generalizing facial expressions across identities.
+        </p>
+
         <h3>Neural Scene Representations</h3>
         <hr>
         <!--<img src="img/teaser.gif" style="width:50%; display:block; margin-right:auto; margin-left:auto; margin-top:-10px;">--!>
@@ -70,61 +146,8 @@
         </p>
 
 
-        <h3>Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations</h3>
-        <hr>
-        <p>
-            We propose Scene Representation Networks (SRNs), a continuous, 3D-structure-aware scene representation that
-            encodes both geometry and appearance. SRNs represent scenes as continuous functions that map world
-            coordinates to a feature representation of local scene properties. By formulating the image formation as a
-            neural, 3D-aware rendering algorithm, SRNs can be trained end-to-end from only 2D observations, without
-            access to depth or geometry. SRNs do not discretize space, smoothly parameterizing scene surfaces, and their
-            memory complexity does not scale directly with scene resolution. This formulation naturally generalizes
-            across scenes, learning powerful geometry and appearance priors in the process.
-        </p>
-        <h3>Reconstructing Geometry and Appearance only from images</h3>
-        <hr>
-<!--        <img src="img/.gif" style="width:32%; margin-right:auto; margin-left:auto; margin-top:-10px;">-->
-        <p>
-            Due to the explicit 3D constraints enforced by the neural ray marcher, SRNs are forced to explain all
-            observations in 3D, leading to unsupervised, yet explicit, reconstruction of geometry jointly with
-            appearance. Normal maps may visualize the reconstructed geometry and make SRNs fully interpretable.
-        </p>
-        <h3>Per-pixel formulation</h3>
-        <hr>
-        <div class="gif">
-            <img src="img/zoom.gif" style="width:32%; margin-right:auto; margin-left:auto; margin-top:-10px;" >
-            <img src="img/camera_rotation.gif" style="width:32%; margin-right:auto; margin-left:auto; margin-top:-10px;">
-        </div>
-        <p>
-            SRNs generate images without using convolutional neural networks (CNNs) - pixels of a rendered image
-            are only connected via the 3D scene representation. SRNs can thus be sampled at arbitrary image
-            resolutions without retraining, and naturally generalize to completely unseen camera transformations. The model
-            that generated the images above was trained on cars, but only on views with a constant distance to
-            each car - yet, it flawlessly enables zooom and camera roll, though these transformations were entirely
-            unobserved at training time. In contrast, models with black-box neural renderers will fail entirely to
-            generate these novel views.
-        </p>
-        <h3>Few-shot reconstruction</h3>
-        <hr>
-        <p>
-            By generalizing SRNs over a class of scenes, they enable few-shot reconstruction of both shape and geometry
-            - a car, for instance, may be reconstructed from only a single observation, enabling almost perfectly
-            multi-view consistent novel view generation.
-        </p>
-        <h3>Non-rigid deformation</h3>
-        <hr>
-        <div class="gif">
-            <img src="img/identity_interpolation.gif" style="width:32%; margin-top:-10px;">
-            <img src="img/face_expressions.gif" style="width:32%; margin-top:-10px;">
-        </div>
-        <p>
-            Because surfaces are parameterized smoothly, SRNs naturally allow for non-rigid deformation. The model above
-            was trained on 50 images each of 1000 faces, where each of the 50 images shows the same face (identity and
-            expression) from a unique view. In other words, a single identity has only been seen with a single facial
-            expression. Subsequently, SRNs allow to fix the identity of the face while varying the facial expression,
-            effortlessly generalizing facial expressions across identities.
-        </p>
     </div>
+
 
 
     <div class="section">
