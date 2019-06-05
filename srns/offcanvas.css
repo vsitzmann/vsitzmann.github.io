@@ -6,7 +6,6 @@ html,
 body {
   overflow-x: hidden;  /*Prevent scroll on narrow devices */
   padding-top: 30px;
-  text-align:center;
 }
 footer {
   padding: 10px 0;
@@ -33,16 +32,22 @@ li {
   font-size: 48px;
 }
 
-.jumbotron {
-  margin: 0px;
-}
-
 .section {
   padding-top: 10px;
 }
 
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .gif {
     padding:10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .caption {
