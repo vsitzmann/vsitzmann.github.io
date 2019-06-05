@@ -52,7 +52,8 @@
         </p>
         <p>
             The advent of deep learning has given rise to <b>neural scene representations</b>.
-            Instead of hand-crafting the representation, they learn a feature representation from data. However, many of these representations do not explicitly reason about
+            Instead of hand-crafting the representation, they learn a feature representation from data.
+            However, many of these representations do not explicitly reason about
             geometry and thus do not account for the underlying 3D structure of our world, making them data-inefficient
             and opaque.
         </p>
@@ -60,13 +61,12 @@
         <h3>The Trouble with Voxel Grids</h3>
         <hr>
         <p>
-            Recent work (<a href="https://vsitzmann.github.io/deepvoxels">including our own</a>) explores voxel grids as a middle ground, where
-            features are stored in a 3D grid, and view transformations are hard-coded to enforce 3D structure.
-            This has yielded photo-realistic results. Voxel grids, however, are an unlikely candidate for the "correct"
-            representation: As a dense grid, they require memory that scales cubically with spatial resolution.
+            Recent work (<a href="https://vsitzmann.github.io/deepvoxels">including our own</a>) explores voxel grids as a middle ground.
+            Features are stored in a 3D grid, and view transformations are hard-coded to enforce 3D structure.
+            Voxel grids, however, are an unlikely candidate for the "correct"
+            representation, as they require memory that scales cubically with spatial resolution.
             This is acceptable for small objects, but doesn't scale to larger scenes. Lastly, voxel grids do not parameterize
-            scene surfaces smoothly, and priors on shape have to be parameterized as joint probabilities
-            over neighborhoods of voxels.
+            scene surfaces smoothly, and priors on shape are learnt as joint probabilities of voxel neighborhoods.
         </p>
 
 
