@@ -5,31 +5,489 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
-          content="">
-    <meta name="author" content="">
+          content="MetaSDF: Meta-Learning Signed Distance Functions">
+    <meta name="author" content="Vincent Sitzmann,
+                                 Eric R. Chan,
+                                 Richard Tucker,
+                                 Noah Snavely,
+								 Gordon Wetzstein">
 
-    <title></title>
+    <title>Implicit Neural Representations with Periodic Activation Functions</title>
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <!--link href="bootstrap.min.css" rel="stylesheet"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="offcanvas.css" rel="stylesheet">
+    <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
 
-<!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+    <!-- Loads <model-viewer> for modern browsers: -->
+    <script type="module"
+            src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
+    </script>
 </head>
 
 <body>
-<div class="container">
-
-    <div class="jumbotron">
-	    <h2>Coming soon</h2>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container"></div>
+    <h2>MetaSDF: Meta-Learning Signed Distance Functions</h2>
+    <hr>
+    <p class="authors">
+        <a href="http://www.stanford.edu/~sitzmann/"> Vincent Sitzmann*</a>,
+        <a href="http://www.jmartel.net"> Eric R. Chan*</a>,
+        <a href="http://www.zollhoefer.com/"> Richard Tucker</a>,</br>
+        <a href="http://www.davidlindell.com/"> Noah Snavely</a>,
+        <a href="https://stanford.edu/~gordonwz/"> Gordon Wetzstein</a>
+    </p>
+    <div class="btn-group" role="group" aria-label="Top menu">
+        <a class="btn btn-primary"
+           href="">Paper</a>
+        <a class="btn btn-primary disabled" href="">Code</a>
+        <a class="btn btn-primary disabled" href="">Data</a>
     </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <video width="80%" playsinline="" autoplay="" loop="" preload="" muted="">
+                    <source src="img/metasdf_steps_comp.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <hr>
+        <p>
+            Neural implicit shape representations are an emerging paradigm that offers many potential benefits over
+            conventional discrete representations, including memory efficiency at a high spatial resolution.
+            Generalizing across shapes with such neural implicit representations amounts to learning priors over the
+            respective function space and enables geometry reconstruction from partial or noisy observations. Existing
+            generalization methods rely on conditioning a neural network on a low-dimensional latent code that is
+            either regressed by an encoder or jointly optimized in the auto-decoder framework. Here, we formalize
+            learning of a shape space as a meta-learning problem and leverage gradient-based meta-learning algorithms
+            to solve this task. We demonstrate that this approach performs on par with auto-decoder based approaches
+            while being an order of magnitude faster at test-time inference. We further demonstrate that the proposed
+            gradient-based method outperforms encoder-decoder based methods that leverage pooling-based set encoders.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Reconstructing SDFs from Dense Samples</h2>
+        <hr>
+        <p>
+            We can recover an SDF by supervising with dense, ground-truth samples from the signed distance function, as
+            proposed in DeepSDF, or with a point cloud taken from the zero-level set (mesh surface), similar to a PointNet encoder.
+        </p>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 padding-0 canvas-row">
+                    <h4>Ground Truth</h4>
+                    <model-viewer
+                            alt="Ground Truth"
+                            src="glbs/gt_1.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            camera-orbit="0deg 75deg 105%"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <h4>DeepSDF</h4>
+                    <model-viewer
+                            alt="DeepSDF"
+                            src="glbs/deepsdf_1.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                    <!--                            poster="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5e7e6db2d75a9b467eee4111_legomesh_cover.png"-->
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <h4>MetaSDF</h4>
+                    <model-viewer
+                            alt="Statue ReLU"
+                            src="glbs/metasdf_1.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Ground Truth"
+                            src="glbs/gt_2.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            camera-orbit="0deg 75deg 105%"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="DeepSDF"
+                            src="glbs/deepsdf_2.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                    <!--                            poster="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5e7e6db2d75a9b467eee4111_legomesh_cover.png"-->
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Statue ReLU"
+                            src="glbs/metasdf_2.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Ground Truth"
+                            src="glbs/gt_3.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            camera-orbit="0deg 75deg 105%"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="DeepSDF"
+                            src="glbs/deepsdf_3.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                    <!--                            poster="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5e7e6db2d75a9b467eee4111_legomesh_cover.png"-->
+                </div>
+
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Statue ReLU"
+                            src="glbs/metasdf_3.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Ground Truth"
+                            src="glbs/gt_4.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            camera-orbit="0deg 75deg 105%"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="DeepSDF"
+                            src="glbs/deepsdf_4.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                    <!--                            poster="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5e7e6db2d75a9b467eee4111_legomesh_cover.png"-->
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Statue ReLU"
+                            src="glbs/metasdf_4.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Reconstructing SDFs from a Surface Point Cloud</h2>
+        <hr>
+        <p>
+            We can recover an SDF by supervising with dense, ground-truth samples from the signed distance function, as
+            proposed in DeepSDF, or with a point cloud taken from the zero-level set (mesh surface), similar to a PointNet encoder.
+        </p>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 padding-0 canvas-row">
+                    <h4>Ground Truth</h4>
+                    <model-viewer
+                            alt="Ground Truth"
+                            src="glbs/gt_1.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            camera-orbit="0deg 75deg 105%"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <h4>PointNet</h4>
+                    <model-viewer
+                            alt="Statue Siren"
+                            src="glbs/pointnet_1.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <h4>MetaSDF Lvl.</h4>
+                    <model-viewer
+                            alt="Statue ReLU"
+                            src="glbs/metasdf_l1_1.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Ground Truth"
+                            src="glbs/gt_2.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            camera-orbit="0deg 75deg 105%"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Statue Siren"
+                            src="glbs/pointnet_2.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Statue ReLU"
+                            src="glbs/metasdf_l1_2.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Ground Truth"
+                            src="glbs/gt_3.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            camera-orbit="0deg 75deg 105%"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Statue Siren"
+                            src="glbs/pointnet_3.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Statue ReLU"
+                            src="glbs/metasdf_l1_3.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Ground Truth"
+                            src="glbs/gt_4.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            camera-orbit="0deg 75deg 105%"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Statue Siren"
+                            src="glbs/pointnet_4.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="col-md-4 padding-0 canvas-row">
+                    <model-viewer
+                            alt="Statue ReLU"
+                            src="glbs/metasdf_l1_4.glb"
+                            style="width: 100%; height: 200px; background-color: #404040"
+                            exposure=".8"
+                            auto-rotate
+                            camera-controls>
+                    </model-viewer>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h2>Related Projects</h2>
+        <hr>
+        <p>
+            Check out our related projects on the topic of implicit neural representations! <br>
+        </p>
+        <div class='row vspace-top'>
+            <div class="col-sm-3">
+                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                    <source src="img/poisson_convergence_15s_label.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="col">
+                <div class='paper-title'>
+                    <a href="http://vsitzmann.github.io/siren/">Implicit Neural Representations with Periodic Activation Functions</a>
+                </div>
+                <div>
+                    We propose a new neural network architecture for implicit neural representations that can accurately
+                    fit complex signals, such as room-scale SDFs, video, and audio, and allows us to supervise implicit
+                    representations via their gradients to solve boundary value problems!
+                </div>
+            </div>
+        </div>
+
+        <div class='row vspace-top'>
+            <div class="col-sm-3">
+                <img src='img/SRNs.gif' class='img-fluid'>
+            </div>
+
+            <div class="col">
+                <div class='paper-title'>
+                    <a href="http://vsitzmann.github.io/srns/">Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations</a>
+
+                </div>
+                <div>
+                    A continuous, 3D-structure-aware neural scene representation that encodes both geometry and appearance,
+                    supervised only in 2D via a neural renderer, and generalizes for 3D reconstruction from a single posed 2D image.
+                </div>
+            </div>
+        </div>
+
+        <div class='row vspace-top'>
+            <div class="col-sm-3">
+                <img src='img/srn_seg_repimage.jpg' class='img-fluid'>
+            </div>
+
+            <div class="col">
+                <div class='paper-title'>
+                    <a href="https://www.computationalimaging.org/publications/semantic-srn/">Inferring Semantic Information with 3D Neural Scene Representations
+</a>
+                </div>
+                <div>
+                    We demonstrate that the features learned by neural implicit scene representations are useful for downstream
+                    tasks, such as semantic segmentation, and propose a model that can learn to perform continuous 3D
+                    semantic segmentation on a class of objects (such as chairs) given only a single, 2D (!) semantic label map!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Paper</h2>
+        <hr>
+        <div>
+            <div class="list-group">
+                <a href="https://papers.nips.cc/paper/8396-scene-representation-networks-continuous-3d-structure-aware-neural-scene-representations"
+                   class="list-group-item">
+                    <img src="img/paper_thumbnails.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Bibtex</h2>
+        <hr>
+        <div class="bibtexsection">
+            @inproceedings{sitzmann2019metasdf,
+                author = {Sitzmann, Vincent
+                          and Chan, Eric R.
+                          and Tucker, Richard
+                          and Snavely, Noah
+                          and Wetzstein, Gordon},
+                title = {MetaSDF: Meta-Learning Signed
+                         Distance Functions},
+                booktitle = {arXiv},
+                year={2020}
+            }
+        </div>
+    </div>
+
+    <hr>
 
     <footer>
         <p>Send feedback and questions to <a href="http://web.stanford.edu/~sitzmann/">Vincent Sitzmann</a></p>
-        <p>Thanks to Volodymyr Kuleshov for his website template. &copy; 2017</p>
     </footer>
+</div>
 
-</div><!--/.container-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>
