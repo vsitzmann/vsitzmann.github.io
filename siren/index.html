@@ -282,8 +282,7 @@
             and surface normals, accurately reproducing fine detail, in less than an hour of training.
             In contrast to recent work on combining voxel grids with neural implicit representations,
             this stores the full scene in the weights of a single, 5-layer neural network, with no 2D or 3D
-            convolutions,
-            and orders of magnitude fewer parameters.
+            convolutions, and orders of magnitude fewer parameters. Zoom in to compare fine detail!
             <b>Note that these SDFs are not supervised with ground-truth SDF / occupancy values, but rather, are the
             result of solving the above Eikonal boundary value problem. This is a significantly harder task,
             which requires supervision in the gradient domain (see paper). As a result, architectures whose gradients
@@ -329,7 +328,7 @@
                     </model-viewer>
                 </div>
                 <div class="col-md-4 padding-0 canvas-row">
-                    <h4>Statue - ReLU</h4>
+                    <h4>Statue - ReLU Pos. Enc.</h4>
                     <model-viewer
                             alt="Statue Positional Encoding"
                             src="img/statue_relu_pe.glb"
