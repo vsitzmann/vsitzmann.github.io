@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Light Field Networks: Neural Scene Representations with Single-Evaluation Rendering">
+    <meta name="author"
+          content="Vincent Sitzmann, Semon Rezchikov, William T. Freeman, Joshua B. Tenenbaum, Fredo Durand">
+
+    <title>Light Field Networks: Neural Scene Representations with Single-Evaluation Rendering</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+    <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+</head>
+
+<body>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container"></div>
+    <h2>Light Field Networks:<br>Neural Scene Representations with Single-Evaluation Rendering</h2>
+    <!--    <h3></h3>-->
+    <hr>
+    <p class="authors">
+        <a href="http://www.stanford.edu/~sitzmann/"> Vincent Sitzmann*</a>,
+        <a href="https://math.columbia.edu/~skr/"> Semon Rezchikov*</a>,
+        <a href="https://billf.mit.edu/"> William T. Freeman</a>,</br>
+        <a href="https://mitibmwatsonailab.mit.edu/people/joshua-tenenbaum/"> Joshua B. Tenenbaum</a>,
+        <a href="https://people.csail.mit.edu/fredo/"> Fredo Durand</a>
+    </p>
+    <div class="btn-group" role="group" aria-label="Top menu">
+        <a class="btn btn-primary" href="http://arxiv.org/abs/2106.02634">Paper</a>
+        <!--        <a class="btn btn-primary disabled" href="https://colab.research.google.com/github/vsitzmann/siren/blob/master/explore_siren.ipynb">Colab Notebook</a>-->
+        <!--        <a class="btn btn-primary disabled" href="https://dcato98.github.io/playground/#activation=sine">Tensorflow Playground</a>-->
+        <a class="btn btn-primary disabled" href="">Code (coming soon!)</a>
+        <a class="btn btn-primary disabled" href="">Data (coming soon!)</a>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="section">
+        <div class="vcontainer">
+            <iframe class='video' src="https://www.youtube.com/embed/x3sSreTNFw4" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+        <hr>
+        <p>
+            Inferring representations of 3D scenes from 2D observations is a fundamental problem of computer graphics,
+            computer vision, and artificial intelligence. Emerging 3D-structured neural scene representations are a
+            promising approach to 3D scene understanding. In this work, we propose a novel neural scene representation,
+            Light Field Networks or LFNs, which represent both geometry and appearance of the underlying 3D scene in a
+            360-degree, four-dimensional light field parameterized via a neural implicit representation. Rendering a ray
+            from an LFN requires only a *single* network evaluation, as opposed to hundreds of evaluations per ray for
+            ray-marching or volumetric based renderers in 3D-structured neural scene representations. In the setting of
+            simple scenes, we leverage meta-learning to learn a prior over LFNs that enables multi-view consistent light
+            field reconstruction from as little as a single image observation. This results in dramatic reductions in
+            time and memory complexity, and enables real-time rendering. The cost of storing a 360-degree light field
+            via an LFN is two orders of magnitude lower than conventional methods such as the Lumigraph. Utilizing the
+            analytical differentiability of neural implicit representations and a novel parameterization of light space,
+            we further demonstrate the extraction of sparse depth maps from LFNs.
+        </p>
+    </div>
+
+<!--    <div class="section">-->
+<!--        <h2>Reconstructing 360-degree light fields from images only</h2>-->
+<!--        <hr>-->
+<!--        <p>-->
+<!--            The following results show novel views generated of simple room-scale scenes and Shapenet objects.-->
+<!--            Each pixel only requires a <b>single</b> network evaluation - these results can thus be rendered at <b>500 FPS</b>.-->
+<!--            Consequently, LFNs also require <b>several orders of magnitude less memory</b> than 3D-structured Neural Scene Representations,-->
+<!--            enabling training with massive batch sizes (e.g. batch size 300 for complete 64x64 images on a 24 GB GPU)-->
+<!--            and high-resolution test and training time performance.-->
+<!--        </p>-->
+<!--    </div>-->
+
+<!--    <div class="section">-->
+<!--        <h2>Reconstructing 360-degree Light Fields</h2>-->
+<!--        <hr>-->
+<!--        <p>-->
+<!--            An LFN maps a 4-dimensional <b>oriented ray</b> to the color observed by that ray - instead of mapping a-->
+<!--            3D coordinate to whatever is at that 3D coordinate, which necessitates ray-marching.-->
+<!--        </p>-->
+<!--        <div class="row align-items-center">-->
+<!--            <div class="col justify-content-center text-center">-->
+<!--                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">-->
+<!--                    <source src="img/image_convergence_15s_label.mp4" type="video/mp4">-->
+<!--                </video>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="section">-->
+<!--        <h2>Single-Shot reconstruction</h2>-->
+<!--        <hr>-->
+<!--        <p>-->
+<!--            LFNs outperform existing globally conditioned neural scene representations such as Scene Representation Networks-->
+<!--            or the Differentiable Volumetric Renderer, while rendering in real-time and requiring orders of magnitude less memory.-->
+<!--        </p>-->
+<!--        <div class="row justify-content-left">-->
+<!--        </div>-->
+
+        <div class="section">
+            <h2>Related Projects</h2>
+            <hr>
+            <p>
+                Check out our related projects on neural scene representations! <br>
+            </p>
+
+            <div class='row vspace-top'>
+                <div class="col-sm-3">
+                    <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="img/poisson_convergence_15s_label.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="col">
+                    <div class='paper-title'>
+                        <a href="http://vsitzmann.github.io/siren/">Implicit Neural Representations with Periodic Activation Functions</a>
+                    </div>
+                    <div>
+                        We propose a new neural network architecture for implicit neural representations that can accurately
+                        fit complex signals, such as room-scale SDFs, video, and audio, and allows us to supervise implicit
+                        representations via their gradients to solve boundary value problems!
+                    </div>
+                </div>
+            </div>
+
+            <div class='row vspace-top'>
+                <div class="col-sm-3">
+                    <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="img/metasdf_steps_comp.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="col">
+                    <div class='paper-title'>
+                        <a href="http://vsitzmann.github.io/metasdf/">MetaSDF: Meta-learning Signed Distance
+                            Functions</a>
+                    </div>
+                    <div>
+                        We identify a key relationship between generalization across implicit neural representations and
+                        meta-
+                        learning, and propose to leverage gradient-based meta-learning for learning priors over deep
+                        signed distance
+                        functions. This allows us to reconstruct SDFs an order of magnitude faster than the auto-decoder
+                        framework,
+                        with no loss in performance!
+                    </div>
+                </div>
+            </div>
+
+            <div class='row vspace-top'>
+                <div class="col-sm-3">
+                    <img src='img/SRNs.gif' class='img-fluid'>
+                </div>
+
+                <div class="col">
+                    <div class='paper-title'>
+                        <a href="http://vsitzmann.github.io/srns/">Scene Representation Networks: Continuous
+                            3D-Structure-Aware Neural Scene Representations</a>
+
+                    </div>
+                    <div>
+                        A continuous, 3D-structure-aware neural scene representation that encodes both geometry and
+                        appearance,
+                        supervised only in 2D via a neural renderer, and generalizes for 3D reconstruction from a single
+                        posed 2D image.
+                    </div>
+                </div>
+            </div>
+
+            <div class='row vspace-top'>
+                <div class="col-sm-3">
+                    <img src='img/srn_seg_repimage.jpg' class='img-fluid'>
+                </div>
+
+                <div class="col">
+                    <div class='paper-title'>
+                        <a href="https://www.computationalimaging.org/publications/semantic-srn/">Inferring Semantic
+                            Information with 3D Neural Scene Representations
+                        </a>
+                    </div>
+                    <div>
+                        We demonstrate that the features learned by neural implicit scene representations are useful for
+                        downstream
+                        tasks, such as semantic segmentation, and propose a model that can learn to perform continuous
+                        3D
+                        semantic segmentation on a class of objects (such as chairs) given only a single, 2D (!)
+                        semantic label map!
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Paper</h2>
+                <hr>
+                <div>
+                    <div class="list-group">
+                        <a href="http://arxiv.org/abs/2106.02634"
+                           class="list-group-item">
+                            <img src="img/paper_thumbnail.png"
+                                 style="width:100%; margin-right:-20px; margin-top:-10px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Bibtex</h2>
+                <hr>
+                <div class="bibtexsection">
+                    @inproceedings{sitzmann2019lfns,
+                        author = {Sitzmann, Vincent
+                                  and Rezchikov, Semon
+                                  and Freeman, William T.
+                                  and Tenenbaum, Joshua B.
+                                  and Durand, Fredo},
+                        title = {Light Field Networks: Neural Scene Representations
+                                 with Single-Evaluation Rendering},
+                        booktitle = {arXiv},
+                        year={2021}
+                    }
+                </div>
+            </div>
+
+            <hr>
+
+            <footer>
+                <p>Send feedback and questions to <a href="vsitzmann.github.io">Vincent Sitzmann</a></p>
+            </footer>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+                crossorigin="anonymous"></script>
+
+</body>
+</html>
