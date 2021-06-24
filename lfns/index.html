@@ -66,74 +66,79 @@
         </p>
     </div>
 
-<!--    <div class="section">-->
-<!--        <h2>The geometry of light fields</h2>-->
-<!--        <hr>-->
-<!--        <p>-->
-<!--            A light field is a function that maps a four-dimensional oriented ray to the radiance observed by that ray.-->
-<!--            To see why oriented rays are four-dimensional, consider that an oriented line can be parameterized by a point on the line-->
-<!--            and a direction. The direction can be normalized - that's one degree of freedom less - and the point can move freely on the line-->
-<!--            - that's another degree of freedom less. We parameterize this space via Plücker coordinates, which uniquely-->
-<!--            identify each line and are an extremely convenient parameterization of light space, as they paramaterize all of it without-->
-<!--            any special cases or singularities. This allows us to parameterize <b>full 360-degree ligth fields</b> via-->
-<!--            a neural implicit representation. Finally, we propose a parameterization of <b>local Epipolar Plane Images (EPIs)</b>,-->
-<!--            which allows us to extract these rich objects from any camera perspective.-->
-<!--        </p>-->
-<!--        <div class="row align-items-center">-->
-<!--            <div class="col justify-content-center text-center">-->
-<!--                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">-->
-<!--                    <source src="img/rooms_360_compressed.mp4" type="video/mp4">-->
-<!--                </video>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="section">
+        <h2>The trouble with SRNs, NeRF & Co.</h2>
+        <hr>
+        <p>
+            3D-structured Neural Scene Representations have recently enjoyed great success, and have enabled new applications
+            in graphics, vision, and artificial intelligence.
+            However, they are currently severely limited by the neural rendering algorithms they require for training and
+            testing: Both volumetric rendering as in NeRF and sphere-tracing as in Scene Representation Networks
+            require <b>hundreds</b> of evaluations of the representation per ray, resulting in forward pass times on the order of
+            <b>tens of seconds</b> for a single, 256x256 image. This cost is incurred both at training and testing time,
+            and training requires backpropagating through this extremely expensive rendering algorithm.
+            This makes these neural scene representations borderline infeasible for use in all but computer graphics tasks, and even here,
+            additional tricks - such as caching and hybrid explicit-implicit representations - are required to achieve real-time
+            framerates.
+        </p>
+    </div>
 
-<!--    <div class="section">-->
-<!--        <h2>Reconstructing 360-degree light fields from images only</h2>-->
-<!--        <hr>-->
-<!--        <p>-->
-<!--            The following results show novel views generated of simple room-scale scenes and Shapenet objects.-->
-<!--            Each pixel only requires a <b>single</b> network evaluation - these results can thus be rendered at <b>500 FPS</b>.-->
-<!--            Consequently, LFNs also require <b>several orders of magnitude less memory</b> than 3D-structured Neural Scene Representations,-->
-<!--            enabling training with massive batch sizes (e.g. batch size 300 for complete 64x64 images on a 24 GB GPU)-->
-<!--            and high-resolution test- and training time performance.-->
-<!--        </p>-->
-<!--        <div class="row align-items-center">-->
-<!--            <div class="col justify-content-center text-center">-->
-<!--                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">-->
-<!--                    <source src="img/rooms_360_compressed.mp4" type="video/mp4">-->
-<!--                </video>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="section">
+        <h2>Light Field Networks</h2>
+        <hr>
+        <p>
+            We introduce Light Field Networks, or short LFNs. Instead of mapping a 3D world coordinate to whatever is at that
+            coordinate, LFNs directly map an <b>oriented ray</b> to whatever is <b>observed</b> by that oriented ray.
+            In this manner, LFNs parameterize the <b>full 360-degree light field</b> of the underlying 3D scene.
+            This means that LFNs only require a <b>single</b> evaluation of the neural implicit representation per ray.
+            This unlocks rendering at framerates of >500 FPS, and with a minimal memory footprint. Below,
+            we compare rendering an LFN to the recently proposed PixelNeRF - LFNs accelerate rendering by a factor of about 15,000.
+        </p>
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <video width="80%" playsinline="" autoplay="" loop="" preload="" muted="">
+                    <source src="img/lfn_vs_pixelnerf_compressed.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>The geometry of light fields</h2>
+        <hr>
+        <p>
+            Unintuitevly, LFNs do <b>not</b> only encode the appearance of the underlying 3D scene, <b>but also its geometry</b>.
+            Our novel parameterization of light fields via the mathematically convenient plucker
+            coordinates, together with the unique properties of Neural Implicit Representations, allows us to <b>extract sparse depth maps</b>
+            of the underlying 3D scene in <b>constant time, without ray-marching!</b> We achieve this by deriving a
+            relationship of an LFN's derivatives to the scene's geometry: at a high level, the geometry of the levelsets of the
+            4D light field encode the geometry of the underlying scene, and these levelsets can be efficiently accessed via automatic
+            differentiation. This is in contrast to 3D-structured
+            representations, which require ray-marching to extract any representation of the scene's geometry.
+            Below, we show sparse depth maps extracted from LFNs that were trained to represent simple room-scale environments.
+        </p>
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                    <source src="img/rooms_360_compressed.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
 
 
-
-<!--    <div class="section">-->
-<!--        <h2>Reconstructing 360-degree Light Fields</h2>-->
-<!--        <hr>-->
-<!--        <p>-->
-<!--            An LFN maps a 4-dimensional <b>oriented ray</b> to the color observed by that ray - instead of mapping a-->
-<!--            3D coordinate to whatever is at that 3D coordinate, which necessitates ray-marching.-->
-<!--        </p>-->
-<!--        <div class="row align-items-center">-->
-<!--            <div class="col justify-content-center text-center">-->
-<!--                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">-->
-<!--                    <source src="img/image_convergence_15s_label.mp4" type="video/mp4">-->
-<!--                </video>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <div class="section">-->
-<!--        <h2>Single-Shot reconstruction</h2>-->
-<!--        <hr>-->
-<!--        <p>-->
-<!--            LFNs outperform existing globally conditioned neural scene representations such as Scene Representation Networks-->
-<!--            or the Differentiable Volumetric Renderer, while rendering in real-time and requiring orders of magnitude less memory.-->
-<!--        </p>-->
-<!--        <div class="row justify-content-left">-->
-<!--        </div>-->
+    <div class="section">
+        <h2>Meta-learning LFNs</h2>
+        <hr>
+        <p>
+            While 3D-structured neural representations ensure multi-view consistency via ray-marching, Light Field Networks
+            are not naturally multi-view consistent. To overcome this challenge, we leverage meta-learning via hypernetworks
+            to learn a space of multi-view consistent light fields.
+            As a corollary, we can leverage this learned prior to reconstruct an LFN from <b>only a single image observation</b>!
+            In this regime, LFNs outperform existing globally conditioned neural scene representations such as Scene Representation Networks
+            or the Differentiable Volumetric Renderer, while rendering in real-time and requiring orders of magnitude less memory.
+        </p>
+    </div>
 
         <div class="section">
             <h2>Related Projects</h2>
