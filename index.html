@@ -13,10 +13,14 @@
     <!-- Custom Styles -->
     <style>
           body {
-            font-family: 'sans-serif';
+            font-family: Roboto, 'sans-serif';
             font-size: 16px;
             background-color: #FFFFFF;
             color: #4F6071;
+          }
+          h1 {
+              font-weight: 300;
+              font-size: 2rem;
           }
           #header {
             background-color: #f4f4f4;
@@ -102,7 +106,8 @@
             <div class='col offset-sm-1'>
                 <h1>Bio</h1>
                 <p>
-                    I am an incoming Assistant Professor at MIT EECS. Currently, I am a Postdoc at MIT's CSAIL with
+                    I am an incoming Assistant Professor at MIT EECS, where I will be leading the
+                    <a href="https://www.scenerepresentations.org">Scene Representation Group</a>. Currently, I am a Postdoc at MIT's CSAIL with
                     Josh Tenenbaum, Bill Freeman, and Fredo Durand. Previously, I finished a Ph.D. at Stanford University.
                     My research interest lies in neural scene representations - the way neural networks learn to represent information on our world.
                     My goal is to allow independent agents to reason about our world given visual observations,
@@ -219,6 +224,57 @@
                 <div class='row vspace-top'>
                     <div class="col-sm-3">
                         <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                            <source src="ndfs/thumbnail.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="col">
+                        <div class='paper-title'>
+                            Neural Descriptor Fields: SE(3)-Equivariant Object Representations for Manipulation
+                        </div>
+                        <div class='paper-desc'>
+                            arXiv 2021
+                        </div>
+                        <div class='paper-authors'>
+                            Anthony Simeonov*, Yilun Du*, Andrea Tagliasacchi, Alberto Rodriguez, Pulkit Agrawal†, Vincent Sitzmann†
+                        </div>
+                        <div>
+                            <a href="https://yilundu.github.io/ndf/">[Project page]</a>
+                            <a href="https://arxiv.org/abs/2112.05124">[Paper]</a>
+                            <a href="https://github.com/anthonysimeonov/ndf_robot">[Code]</a>
+                            <a href="https://colab.research.google.com/drive/16bFIFq_E8mnAVwZ_V2qQiKp4x4D0n1sG?usp=sharing">[Colab]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='row vspace-top'>
+                    <div class="col-sm-3">
+                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                            <source src="imgs/gem_thumbnail.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="col">
+                        <div class='paper-title'>
+                            Learning Signal-Agnostic Manifolds of Neural Fields
+                        </div>
+                        <div class='paper-desc'>
+                            NeurIPS 2021
+                        </div>
+                        <div class='paper-authors'>
+                            Yilun Du, Katherine M. Collins, Joshua Tenenbaum, Vincent Sitzmann
+                        </div>
+                        <div>
+                            <a href="https://yilundu.github.io/gem/">[Project page]</a>
+                            <a href="https://arxiv.org/abs/2111.06387">[Paper]</a>
+                            <a href="https://github.com/yilundu/gem">[Code]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='row vspace-top'>
+                    <div class="col-sm-3">
+                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
                             <source src="lfns/img/rooms_360_compressed.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -236,6 +292,8 @@
                         <div>
                             <a href="https://vsitzmann.github.io/lfns">[Project page]</a>
                             <a href=" http://arxiv.org/abs/2106.02634">[Paper]</a>
+                            <a href="https://github.com/vsitzmann/light-field-networks">[Code]</a>
+                            <a href="https://colab.research.google.com/github/vsitzmann/siren/blob/master/explore_siren.ipynb">[Colab]</a>
                         </div>
                     </div>
                 </div>
