@@ -108,7 +108,7 @@
                     <a href="https://scholar.google.com/citations?user=X44QVV4AAAAJ&hl=en&oi=ao">[Google Scholar]</a>
                     <a href="https://linkedin.com/in/vincentsitzmann">[LinkedIn]</a>
                     <a href="https://twitter.com/vincesitzmann">[Twitter]</a>
-                    <a href="https://sigmoid.social/@vsitzmann">[Mastodon]</a>
+                    <!-- <a href="https://sigmoid.social/@vsitzmann">[Mastodon]</a> -->
                     <a href="docs/cv_vincent_sitzmann.pdf">[Download CV]</a>
                   </div>
 
@@ -124,12 +124,14 @@
                 <h1>Bio</h1>
                 <p>
                     I am an Assistant Professor at MIT EECS, where I am leading the
-                    <a href="https://www.scenerepresentations.org">Scene Representation Group</a>. Previously, I did my Ph.D. at Stanford University
-                    as well as a Postdoc at MIT CSAIL.
-                    My research interest lies in neural scene representations - the way neural networks learn to represent information on our world.
-                    My goal is to allow independent agents to reason about our world given visual observations,
-                    such as inferring a complete model of a scene with information on geometry, material, lighting etc.
-                    from only few observations, a task that is simple for humans, but currently impossible for AI.
+                    <a href="https://www.scenerepresentations.org">Scene Representation Group</a>. 
+                    Previously, I did his Ph.D. at Stanford University as well as a Postdoc at MIT CSAIL. 
+                    My research interest lies in building AI that perceives and models the world the way that humans do. 
+                    Specifically, I work towards models that can learn to reconstruct a rich state description of their 
+                    environment, such as reconstructing its 3D structure, materials, semantics, etc. from vision. 
+                    These models should also be able to model the impact of their own actions on that environment, 
+                    i.e., learn a "mental simulator" or "world model". I am particularly interested in models that 
+                    can learn these skills fully self-supervised only from video and by self-directed interaction with the world. 
                 </p>
 
 <!--                <h1>Looking for graduate students!</h1>-->
@@ -250,6 +252,32 @@
                 <div class='row vspace-top'>
                     <div class="col-sm-3">
                         <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                            <source src="imgs/diff_forcing_teaser.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="col">
+                        <div class='paper-title'>
+                            Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion
+                        </div>
+                        <div class='paper-desc'>
+                            arXiv
+                        </div>
+                        <div class='paper-authors'>
+                            Boyuan Chen*, Diego Marti Monso*, Yilun Du, Max Simchowitz, Russ Tedrake, Vincent Sitzmann
+                        </div>
+                        <div>
+                            <a href="https://boyuan.space/diffusion-forcing/">[Project page]</a>
+                            <a href="https://github.com/buoyancy99/diffusion-forcing">[Code]</a>
+                            <a href="https://arxiv.org/abs/2407.01392">[Paper]</a>
+                            <a href="https://x.com/BoyuanChen0/status/1808538170067407264">[Twitter Thread]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='row vspace-top'>
+                    <div class="col-sm-3">
+                        <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
                             <source src="imgs/flowmap_teaser.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -285,7 +313,7 @@
                             pixelSplat: 3D Gaussian Splats from Image Pairs for Scalable Generalizable 3D Reconstruction
                         </div>
                         <div class='paper-desc'>
-                            CVPR 2024 (Oral)
+                            CVPR 2024 (Oral, Best Paper Runner-Up)
                         </div>
                         <div class='paper-authors'>
                             David Charatan, Sizhe Li, Andrea Tagliasacchi, Vincent Sitzmann
